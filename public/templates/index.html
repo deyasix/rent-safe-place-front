@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RentSafePlace</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html" style="font-size: 25px">RentSafePlace</a></li>
+            <li><a href="login_realtor.html" id="textLoginRealtor"></a></li>
+            <li><a href="register.html" id="textRegister"></a></li>
+            <li><a href="login_company.html" id="textLoginCompany"></a></li>
+            <li style="right: 15px; position: absolute;">
+                <label class="toggle">
+                    <input type="checkbox" id="toggleSwitch">
+                    <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+                </label>
+            </li>
+        </ul>
+    </nav>
+</header>
+<body>
+<div class="container">
+    <div class="content">
+        <h2 id="textAutomation"></h2>
+        <p id="textWelcome"></p>
+        <img src="https://firebasestorage.googleapis.com/v0/b/rent-safe-place.appspot.com/o/images%2Fclient-taking-keys-from-female-real-estate-agent-d-2021-09-04-15-51-19-utc.jpg?alt=media&token=7cc1610a-0ad9-4d43-84ed-af8d1b559296"
+             style="width: 50%; margin-left: 25%"/>
+        <h3 id="textAdvantages"></h3>
+        <ul style="width: 80%; margin-left: 3%">
+            <li><strong id="textEasyUse"></strong><p id="textEasyUseParagraph"></p></li>
+            <li><strong id="textAudience"></strong><p id="textAudienceParagraph"></p></li>
+            <li><strong id="textAutomateProcess"></strong><p id="textAutomateProcessParagraph"></p></li>
+            <li><strong id="textReliability"></strong><p id="textReliabilityParagraph"></p></li>
+            <li><strong id="textSupport"></strong><p id="textSupportParagraph"></p></li>
+        </ul>
+        <p></p>
+        <p id="textConclusion"></p>
+    </div>
+    <footer id="footer"></footer>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script>
+    function updateContent() {
+        document.getElementById("textAutomation").textContent = i18next.t("home_realtor_automation")
+        document.getElementById("textWelcome").textContent = i18next.t("home_realtor_welcome")
+        document.getElementById("textAdvantages").textContent = i18next.t("home_realtor_advantages")
+        document.getElementById("textEasyUse").textContent = i18next.t("home_realtor_easy_use")
+        document.getElementById("textEasyUseParagraph").textContent = i18next.t("home_realtor_easy_use_paragraph")
+        document.getElementById("textAudience").textContent = i18next.t("home_realtor_audience")
+        document.getElementById("textAudienceParagraph").textContent = i18next.t("home_realtor_audience_paragraph")
+        document.getElementById("textAutomateProcess").textContent = i18next.t("home_realtor_automate_process")
+        document.getElementById("textAutomateProcessParagraph").textContent = i18next.t("home_realtor_automate_process_paragraph")
+        document.getElementById("textReliability").textContent = i18next.t("home_realtor_reliability")
+        document.getElementById("textReliabilityParagraph").textContent = i18next.t("home_realtor_reliability_paragraph")
+        document.getElementById("textSupport").textContent = i18next.t("home_realtor_support")
+        document.getElementById("textSupportParagraph").textContent = i18next.t("home_realtor_support_paragraph")
+        document.getElementById("textConclusion").textContent = i18next.t("home_realtor_conclusion")
+        document.getElementById("footer").textContent = i18next.t("footer")
+        document.getElementById("textLoginRealtor").textContent = i18next.t("login_realtor")
+        document.getElementById("textLoginCompany").textContent = i18next.t("login_company")
+        document.getElementById("textRegister").textContent = i18next.t("register_company")
+
+    }
+    const language = localStorage.getItem("selectedLanguage") === null ? 'uk' : localStorage.getItem("selectedLanguage")
+    document.addEventListener('DOMContentLoaded', function() {
+        i18next.init({
+            lng: language,
+            resources: {
+                en: {
+                    translation: {}
+                },
+                uk: {
+                    translation: {}
+                }
+            }
+        }, function (err, t) {
+            updateContent();
+        });
+
+        const toggleSwitch = document.getElementById('toggleSwitch');
+        toggleSwitch.checked = language !== 'uk';
+        toggleSwitch.addEventListener('change', function() {
+            const slider = this.nextElementSibling;
+            let value;
+            if (this.checked) {
+                slider.setAttribute('data-text', 'EN');
+                value = 'en'
+            } else {
+                slider.setAttribute('data-text', 'УКР');
+                value = 'uk'
+            }
+            localStorage.setItem("selectedLanguage", value);
+            i18next.changeLanguage(value, updateContent);
+        });
+
+        fetch('../../en.json')
+            .then(response => response.json())
+            .then(data => {
+                i18next.addResourceBundle('en', 'translation', data);
+                updateContent();
+            });
+
+        fetch('../../uk.json')
+            .then(response => response.json())
+            .then(data => {
+                i18next.addResourceBundle('uk', 'translation', data);
+                updateContent();
+            });
+    });
+</script>
+</html>

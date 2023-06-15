@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+    <link rel="stylesheet" href="../static/css/subscription.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<header>
+    <nav>
+        <ul>
+            <li><a href="home_company.html" id="textMain" style="font-size: 25px">RentSafePlace</a></li>
+            <li><a href="company_account.html" id="textCabinet"></a></li>
+            <li><a href="subscription.html" id="textSubscription"></a></li>
+            <li><a href="realtors_page.html" id="textRealtors"></a></li>
+            <li id="logoutButton"></li>
+            <li style="right: 15px; position: absolute;">
+                <label class="toggle">
+                    <input type="checkbox" id="toggleSwitch">
+                    <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+                </label>
+            </li>
+        </ul>
+    </nav>
+</header>
+<body>
+<div class="container">
+    <div class="content">
+        <div id="subscriptionContent">
+            <div class="subscriptionInfo">
+                <h3 id="textSubscriptionInfo"></h3>
+                <div class="form-group">
+                    <label for="subscriptionType" id="textSubscriptionType"></label>
+                    <span id="subscriptionType"></span>
+                </div>
+                <div class="form-group">
+                    <label for="startDate" id="textStartDate"></label>
+                    <span id="startDate" readonly></span>
+                </div>
+                <div class="form-group">
+                    <label for="endDate" id="textEndDate"></label>
+                    <span id="endDate"></span>
+                </div>
+                <button id="cancelButton"></button>
+            </div>
+        </div>
+        <div id="noSubscriptionContent">
+            <p id="textSubscriptionAbsent"></p>
+            <button id="subscribeButton"></button>
+        </div>
+        <div id="doSubscribeContent" style="display: none">
+            <div class="subscriptionInfo">
+                <h3 id="textSubscribing"></h3>
+                <div class="form-group">
+                    <label for="subscriptionTypeSelect" id="textSubscriptionType2"></label>
+                    <select id="subscriptionTypeSelect"></select>
+                </div>
+                <div class="form-group">
+                    <label for="startDate" id="textStartDate2"></label>
+                    <span id="startDateSelect"></span>
+                </div>
+                <div class="form-group">
+                    <label for="endDate" id="textEndDate2"></label>
+                    <span id="endDateSelect"></span>
+                </div>
+                <button id="checkoutButton"></button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer"></footer>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script src="../static/js/subscription.js"></script>
+<script src="../static/js/logout_company.js"></script>
+</html>

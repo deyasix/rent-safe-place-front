@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+    <link rel="stylesheet" href="../static/css/tenant.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<header>
+    <nav>
+        <ul>
+            <li><a href="home_realtor.html" id="textMain" style="font-size: 25px">RentSafePlace</a></li>
+            <li><a href="realtor_account.html" id="textCabinet"></a></li>
+            <li><a href="building_list.html" id="textBuildings"></a></li>
+            <li id="logoutButton"></li>
+            <li style="right: 15px; position: absolute;">
+                <label class="toggle">
+                    <input type="checkbox" id="toggleSwitch">
+                    <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+                </label>
+            </li>
+        </ul>
+    </nav>
+</header>
+<body>
+
+<div class="container">
+    <div class="content">
+        <div class="container-tenant">
+            <div id="tenant">
+                <h2 id="textTitle"></h2>
+                <div class="form-group">
+                    <label for="id" id="textId"></label>
+                    <span id="id"></span>
+                </div>
+                <div class="form-group">
+                    <label for="name" id="textName"></label>
+                    <span id="name"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone" id="textPhone"></label>
+                    <span id="phone"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email" id="textEmail"></label>
+                    <span id="email"></span>
+                </div>
+            </div>
+            <img src="" id="image">
+        </div>
+    </div>
+    <footer id="footer"></footer>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+    <script src="../static/js/tenant.js"></script>
+<script src="../static/js/logout_realtor.js"></script>
+</body>
+</html>

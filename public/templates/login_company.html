@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+    <link rel="stylesheet" href="../static/css/login_company.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html" style="font-size: 25px">RentSafePlace</a></li>
+            <li><a href="login_realtor.html" id="textLoginRealtor"></a></li>
+            <li><a href="register.html" id="textRegister"></a></li>
+            <li><a href="login_company.html" id="textLoginCompany"></a></li>
+            <li style="right: 15px; position: absolute;">
+                <label class="toggle">
+                    <input type="checkbox" id="toggleSwitch">
+                    <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+                </label>
+            </li>
+        </ul>
+    </nav>
+</header>
+<body>
+<div class="container">
+    <div class="content">
+        <h2 id="textTitle"></h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email" id="textEmail"></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password" id="textPassword"></label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" id="textLogin"></button>
+        </form>
+    </div>
+    <footer id="footer"></footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script src="../static/js/login.js"></script>
+<script src="../static/js/login_company.js"></script>
+</body>
+</html>

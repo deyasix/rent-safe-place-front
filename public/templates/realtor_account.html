@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title id="title"></title>
+  <link rel="stylesheet" href="../static/css/realtor_account.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<header>
+  <nav>
+    <ul>
+      <li><a href="home_realtor.html" id="textMain" style="font-size: 25px">RentSafePlace</a></li>
+      <li><a href="realtor_account.html" id="textCabinet"></a></li>
+      <li><a href="building_list.html" id="textBuildings"></a></li>
+      <li id="logoutButton"></li>
+      <li style="right: 15px; position: absolute;">
+        <label class="toggle">
+          <input type="checkbox" id="toggleSwitch">
+          <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+        </label>
+      </li>
+    </ul>
+  </nav>
+</header>
+<body>
+<div class="container">
+  <div class="content">
+    <div class="container-realtor">
+      <div class="container-left">
+        <h2 id="textTitle"></h2>
+        <form id="editForm" action="http://127.0.0.1:8088/companies/info" method="GET">
+          <div class="form-group">
+            <label for="email" id="textEmail"></label>
+            <input type="email" id="email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="name" id="textName"></label>
+            <input type="text" id="name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="phone" id="textPhone"></label>
+            <input type="text" id="phone" name="phone">
+          </div>
+          <button type="submit" id="saveButton"></button>
+        </form>
+
+        <div class="button-group">
+          <button id="changePasswordBtn"></button>
+        </div>
+        <div id="changePasswordForm" style="display: none;">
+          <h3 id="changePasswordTitle"></h3>
+          <form id="passwordForm">
+            <div class="form-group">
+              <label for="oldPassword" id="textOldPassword"></label>
+              <input type="password" id="oldPassword" name="oldPassword">
+            </div>
+            <div class="form-group">
+              <label for="newPassword" id="textNewPassword"></label>
+              <input type="password" id="newPassword" name="newPassword">
+            </div>
+            <div class="form-group">
+              <label for="confirmNewPassword" id="textRepeatPassword"></label>
+              <input type="password" id="confirmNewPassword" name="confirmNewPassword">
+            </div>
+            <button type="submit" id="savePasswordBtn"></button>
+          </form>
+        </div>
+      </div>
+      <div class="container-right">
+        <img src="" id="image"/>
+        <div>
+          <label for="imageSrc" id="textImage"></label>
+          <input type="file" id="imageSrc" accept="image/*">
+        </div>
+        <h2 id="textCompany"></h2>
+        <div class="form-group">
+          <label for="companyName" id="textCompanyName"></label>
+          <span id="companyName"></span>
+        </div>
+        <div class="form-group">
+          <label for="companyEmail" id="textCompanyEmail"></label>
+          <span id="companyEmail"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="footer"></footer>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script src="../static/js/logout_realtor.js"></script>
+<script src="../static/js/realtor_account.js" type="module"></script>
+
+</body>
+</html>

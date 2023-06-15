@@ -1,0 +1,205 @@
+h3 {
+    color: #333;
+}
+
+.tab-button {
+    background-color: #AEDEFC;
+    border: none;
+    color: #333;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    background-color: #94BDD6;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+th, td {
+    border: 1px solid #ddd;
+    max-width: 300px;
+    word-break: break-all;
+}
+
+td {
+    padding: 1px;
+}
+
+th {
+    padding: 4px;
+}
+
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #6091A3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#backButton {
+    background-color: #608BA3;
+    margin-top: 1%
+}
+
+#deleteButton {
+    background-color: #F03E44;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.image {
+    flex: 1;
+}
+
+.image img {
+    width: 100%
+}
+
+
+form {
+    flex: 1.5;
+    padding: 50px;
+    border-radius: 4px;
+    margin-right: -20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea,
+form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+form textarea {
+    height: 100px;
+}
+
+form input[type="checkbox"] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#addCompanyLabel, #addRealtorLabel, #addTenantLabel, #addBuildingLabel, #addSubscriptionTypeLabel,
+#addSubscriptionLabel, #addWarningLabel {
+    background-color: #608BA3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 30px
+}
+
+#addCompanyButton, #addRealtorButton, #addTenantButton, #addBuildingButton, #addSubscriptionTypeButton,
+#addSubscriptionButton, #addWarningButton, #editCompanyButton, #editRealtorButton, #editTenantButton, #editBuildingButton,
+#editSubscriptionTypeButton, #editSubscriptionButton, #editWarningButton {
+    margin-top: 30px
+}
+
+
+.toggle {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    right: 50px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: attr(data-text);
+    height: 22px;
+    width: 28px;
+    left: 3px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: black;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+    content: attr(data-text-checked);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}

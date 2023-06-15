@@ -1,0 +1,49 @@
+.content {
+    width: 400px;
+    margin: 50px auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.button-group {
+    margin-top: 10px;
+}
+
+#email:hover,
+#name:hover {
+    border-color: #000;
+}
+

@@ -1,0 +1,40 @@
+.building-list {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px; /* Додатковий відступ між елементами */
+}
+
+.building-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.building-list-item:hover {
+    background-color: #eaeaea;
+}
+
+.building-list-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.building-list-item .building-info {
+    flex: 1;
+}
+
+.building-list-item h3 {
+    margin: 0;
+}
+
+.building-list-item p {
+    margin: 0;
+}

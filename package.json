@@ -1,0 +1,17 @@
+{
+  "name": "rent-safe-place-front",
+  "version": "1.0.0",
+  "dependencies": {
+    "firebase": "^9.22.2",
+    "firebase-app": "^0.0.1",
+    "i18next": "^22.5.1"
+  },
+  "background": {
+    "scripts": [
+      "index.js"
+    ]
+  },
+  "permissions": [
+    "tabs"
+  ]
+}

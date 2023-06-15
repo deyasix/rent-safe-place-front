@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title id="title"></title>
+  <link rel="stylesheet" href="../static/css/company_account.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<header>
+  <nav>
+    <ul>
+      <li><a href="home_company.html" id="textMain" style="font-size: 25px">RentSafePlace</a></li>
+      <li><a href="company_account.html" id="textCabinet"></a></li>
+      <li><a href="subscription.html" id="textSubscription"></a></li>
+      <li><a href="realtors_page.html" id="textRealtors"></a></li>
+      <li id="logoutButton"></li>
+      <li style="right: 15px; position: absolute;">
+        <label class="toggle">
+          <input type="checkbox" id="toggleSwitch">
+          <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+        </label>
+      </li>
+    </ul>
+  </nav>
+</header>
+<body>
+
+<div class="container">
+  <div class="content">
+    <div class="container">
+      <h2 id="textTitle"></h2>
+      <form id="editForm" action="http://127.0.0.1:8088/companies/info" method="GET">
+        <div class="form-group">
+          <label for="email" id="textEmail"></label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="name" id="textName"></label>
+          <input type="text" id="name" name="name">
+        </div>
+        <button type="submit" id="textSave"></button>
+      </form>
+
+      <div class="button-group">
+        <button id="changePasswordBtn"></button>
+      </div>
+      <div class="button-group">
+        <button id="deleteAccountBtn"></button>
+      </div>
+      <div id="changePasswordForm" style="display: none;">
+        <h3 id="textChangePassword"></h3>
+        <form id="passwordForm">
+          <div class="form-group">
+            <label for="oldPassword" id="textOldPassword"></label>
+            <input type="password" id="oldPassword" name="oldPassword">
+          </div>
+          <div class="form-group">
+            <label for="newPassword" id="textNewPassword"></label>
+            <input type="password" id="newPassword" name="newPassword">
+          </div>
+          <div class="form-group">
+            <label for="confirmNewPassword" id="textRepeatPassword"></label>
+            <input type="password" id="confirmNewPassword" name="confirmNewPassword">
+          </div>
+          <button type="submit" id="savePasswordBtn"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer id="footer"></footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script src="../static/js/company_account.js"></script>
+<script src="../static/js/logout_company.js"></script>
+</body>
+</html>

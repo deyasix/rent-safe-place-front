@@ -1,0 +1,56 @@
+.container-realtor {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    alignment-baseline: top;
+}
+
+.container-realtor .container-right {
+    margin-top: 5%
+}
+
+.container-right img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+h2 {
+    text-align: center;
+}
+
+
+label {
+    display: block;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    margin-top:20px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+.button-group {
+    margin-top: 10px;
+}
+
+#email:hover,
+#name:hover {
+    border-color: #000;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+  <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+<label class="toggle" style="right: 15px; position: absolute;">
+  <input type="checkbox" id="toggleSwitch">
+  <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+</label>
+<div class="container">
+  <h2 id="textTitle"></h2>
+  <form>
+    <div class="form-group">
+      <label for="login" id="textLogin"></label>
+      <input type="text" id="login" name="login" required>
+    </div>
+    <div class="form-group">
+      <label for="password" id="textPassword"></label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button id="loginButton"></button>
+  </form>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script>
+  function updateContent() {
+    document.getElementById("title").textContent = i18next.t("login_title")
+    document.getElementById("textTitle").textContent = i18next.t("login_title")
+    document.getElementById("textLogin").textContent = i18next.t("admin_login")
+    document.getElementById("textPassword").textContent = i18next.t("password")
+    document.getElementById("loginButton").textContent = i18next.t("login")
+  }
+  const language = localStorage.getItem("selectedLanguage") === null ? 'uk' : localStorage.getItem("selectedLanguage")
+  document.addEventListener('DOMContentLoaded', function() {
+    i18next.init({
+      lng: language,
+      resources: {
+        en: {
+          translation: {}
+        },
+        uk: {
+          translation: {}
+        }
+      }
+    }, function (err, t) {
+      updateContent();
+    });
+
+    const toggleSwitch = document.getElementById('toggleSwitch');
+    toggleSwitch.checked = language !== 'uk';
+    toggleSwitch.addEventListener('change', function() {
+      const slider = this.nextElementSibling;
+      let value;
+      if (this.checked) {
+        slider.setAttribute('data-text', 'EN');
+        value = 'en'
+      } else {
+        slider.setAttribute('data-text', 'УКР');
+        value = 'uk'
+      }
+      localStorage.setItem("selectedLanguage", value);
+      i18next.changeLanguage(value, updateContent);
+    });
+
+    fetch('../../en.json')
+            .then(response => response.json())
+            .then(data => {
+              i18next.addResourceBundle('en', 'translation', data);
+              updateContent();
+            });
+
+    fetch('../../uk.json')
+            .then(response => response.json())
+            .then(data => {
+              i18next.addResourceBundle('uk', 'translation', data);
+              updateContent();
+            });
+  });
+</script>
+<script src="../static/js/login.js"></script>
+</html>

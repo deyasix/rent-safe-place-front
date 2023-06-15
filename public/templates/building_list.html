@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+  <link rel="stylesheet" href="../static/css/building_list.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<header>
+  <nav>
+    <ul>
+      <li><a href="home_realtor.html" id="textMain" style="font-size: 25px">RentSafePlace</a></li>
+      <li><a href="realtor_account.html" id="textCabinet"></a></li>
+      <li><a href="building_list.html" id="textBuildings"></a></li>
+      <li id="logoutButton"></li>
+      <li style="right: 15px; position: absolute;">
+        <label class="toggle">
+          <input type="checkbox" id="toggleSwitch">
+          <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+        </label>
+      </li>
+    </ul>
+  </nav>
+</header>
+<body>
+<div class="container">
+  <div class="content">
+    <h1 id="textTitle"></h1>
+    <span><a href="add_building.html" id="textAddButton"></a></span>
+    <ul class="building-list"></ul>
+  </div>
+  <footer id="footer"></footer>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script src="../static/js/building_list.js"></script>
+<script src="../static/js/logout_realtor.js"></script>
+</html>

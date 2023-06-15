@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title id="title"></title>
+  <link rel="stylesheet" href="../static/css/add_realtor.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<header>
+  <nav>
+    <ul>
+      <li><a href="home_company.html" id="textMain" style="font-size: 25px">RentSafePlace</a></li>
+      <li><a href="company_account.html" id="textCabinet"></a></li>
+      <li><a href="subscription.html" id="textSubscription"></a></li>
+      <li><a href="realtors_page.html" id="textRealtors"></a></li>
+      <li id="logoutButton"></li>
+      <li style="right: 15px; position: absolute;">
+        <label class="toggle">
+          <input type="checkbox" id="toggleSwitch">
+          <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+        </label>
+      </li>
+    </ul>
+  </nav>
+</header>
+<body>
+
+<div class="container">
+  <div class="content">
+    <h1 id="textTitle"></h1>
+    <form id="realtorForm" action="http://127.0.0.1:8088/companies/realtors" method="POST">
+      <div class="form-group">
+        <label for="email" id="textEmail"></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password" id="textPassword"></label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword" id="textRepeatPassword"></label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+      </div>
+      <div class="form-group">
+        <label for="name" id="textName"></label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="phone" id="textPhone"></label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+      <button id="addRealtorButton"></button>
+    </form>
+  </div>
+  <footer id="footer"></footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script>
+  function updateContent() {
+    document.getElementById("footer").textContent = i18next.t("footer")
+    document.getElementById("logoutButton").textContent = i18next.t("header_logout")
+    document.getElementById("textRealtors").textContent =i18next.t("header_realtors")
+    document.getElementById("textCabinet").textContent = i18next.t("header_cabinet")
+    document.getElementById("textSubscription").textContent = i18next.t("header_subscription")
+    document.getElementById("title").textContent = i18next.t("adding_new_realtor")
+    document.getElementById("textTitle").textContent = i18next.t("adding_new_realtor")
+    document.getElementById("textEmail").textContent = i18next.t("email")
+    document.getElementById("textName").textContent = i18next.t("name")
+    document.getElementById("textPhone").textContent = i18next.t("phone")
+    document.getElementById("textPassword").textContent = i18next.t("password")
+    document.getElementById("textRepeatPassword").textContent = i18next.t("register_repeat_password")
+    document.getElementById("addRealtorButton").textContent = i18next.t("add_realtor")
+  }
+  const language = localStorage.getItem("selectedLanguage") === null ? 'uk' : localStorage.getItem("selectedLanguage")
+  document.addEventListener('DOMContentLoaded', function() {
+    i18next.init({
+      lng: language,
+      resources: {
+        en: {
+          translation: {}
+        },
+        uk: {
+          translation: {}
+        }
+      }
+    }, function (err, t) {
+      updateContent();
+    });
+
+    const toggleSwitch = document.getElementById('toggleSwitch');
+    toggleSwitch.checked = language !== 'uk';
+    toggleSwitch.addEventListener('change', function() {
+      const slider = this.nextElementSibling;
+      let value;
+      if (this.checked) {
+        slider.setAttribute('data-text', 'EN');
+        value = 'en'
+      } else {
+        slider.setAttribute('data-text', 'УКР');
+        value = 'uk'
+      }
+      localStorage.setItem("selectedLanguage", value);
+      i18next.changeLanguage(value, updateContent);
+    });
+
+    fetch('../../en.json')
+            .then(response => response.json())
+            .then(data => {
+              i18next.addResourceBundle('en', 'translation', data);
+              updateContent();
+            });
+
+    fetch('../../uk.json')
+            .then(response => response.json())
+            .then(data => {
+              i18next.addResourceBundle('uk', 'translation', data);
+              updateContent();
+            });
+  });
+</script>
+<script src="../static/js/add_realtor.js"></script>
+<script src="../static/js/logout_company.js"></script>
+</body>
+</html>

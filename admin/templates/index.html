@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+  <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+<div class="tab-container">
+  <label class="toggle" style="right: 15px; position: absolute;">
+    <input type="checkbox" id="toggleSwitch">
+    <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+  </label>
+  <div class="tab">
+    <button class="tab-button active" data-tab="tab1" id="textCompanies"></button>
+    <button class="tab-button" data-tab="tab2" id="textRealtors"></button>
+    <button class="tab-button" data-tab="tab3" id="textTenants"></button>
+    <button class="tab-button" data-tab="tab4" id="textBuildings"></button>
+    <button class="tab-button" data-tab="tab5" id="textSubscriptionTypes"></button>
+    <button class="tab-button" data-tab="tab6" id="textSubscriptions"></button>
+    <button class="tab-button" data-tab="tab7" id="textWarnings"></button>
+  </div>
+  <div id="tab1" class="tab-content">
+    <div id="companyLabel">
+      <h3 id="companiesTitle"></h3>
+    </div>
+    <button id="addCompanyLabel"></button>
+    <table id="companyTable">
+      <thead>
+      <tr>
+        <th id="companyIdTitle"></th>
+        <th id="companyEmailTitle"></th>
+        <th id="companyNameTitle"></th>
+        <th id="companyPasswordTitle"></th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <form id="addCompanyForm" style="display: none">
+      <div class="form-group">
+        <label for="companyEmail">Електронна пошта:</label>
+        <input type="email" id="companyEmail" name="companyEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="companyName">Ім'я:</label>
+        <input type="text" id="companyName" name="companyName" required>
+      </div>
+      <div class="form-group">
+        <label for="companyPassword">Пароль:</label>
+        <input type="password" id="companyPassword" name="companyPassword" required>
+      </div>
+      <button id="addCompanyButton">Додати нову компанію</button>
+    </form>
+    <form id="editCompanyForm" style="display: none">
+      <div class="form-group">
+        <span id="editCompanyId"></span>
+      </div>
+      <div class="form-group">
+        <label for="companyEmail">Електронна пошта:</label>
+        <input type="email" id="editCompanyEmail" name="editCompanyEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="companyName">Ім'я:</label>
+        <input type="text" id="editCompanyName" name="editCompanyName" required>
+      </div>
+      <div class="form-group">
+        <label for="companyPassword">Пароль:</label>
+        <input type="password" id="editCompanyPassword" name="editCompanyPassword" required>
+      </div>
+      <button id="editCompanyButton">Зберегти</button>
+    </form>
+  </div>
+  <div id="tab2" class="tab-content" style="display: none;">
+    <div id="realtorLabel">
+      <h3>Рієлтори</h3>
+    </div>
+    <button id="addRealtorLabel">
+      Додати нового рієлтора
+    </button>
+    <table id="realtorTable">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>id компанії</th>
+        <th>Електронна пошта</th>
+        <th>Пароль</th>
+        <th>Ім'я</th>
+        <th>Телефон</th>
+        <th>Фото</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="container">
+      <form class="addRealtorForm" id="addRealtorForm" style="display: none">
+        <div class="form-group">
+          <label for="realtorEmail">Електронна пошта:</label>
+          <input type="email" id="realtorEmail" name="realtorEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="realtorCompanyId">id компанії:</label>
+          <input type="text" id="realtorCompanyId" name="realtorCompanyId" required>
+        </div>
+        <div class="form-group">
+          <label for="realtorPassword">Пароль:</label>
+          <input type="password" id="realtorPassword" name="realtorPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="realtorName">Ім'я:</label>
+          <input type="text" id="realtorName" name="realtorName" required>
+        </div>
+        <div class="form-group">
+          <label for="realtorPhone">Телефон:</label>
+          <input type="text" id="realtorPhone" name="realtorPhone" required>
+        </div>
+        <div>
+          <label for="realtorImageSrc">Фото:</label>
+          <input type="file" id="realtorImageSrc" accept="image/*">
+        </div>
+        <button id="addRealtorButton">Додати нового рієлтора</button>
+      </form>
+      <div class="image">
+        <img src="" id="realtorImage"/>
+      </div>
+    </div>
+    <div class="container">
+      <form class="editRealtorForm" id="editRealtorForm" style="display: none">
+        <div class="form-group">
+          <span id="editRealtorId"></span>
+        </div>
+        <div class="form-group">
+          <label for="editRealtorEmail">Електронна пошта:</label>
+          <input type="email" id="editRealtorEmail" name="editRealtorEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="editRealtorCompanyId">id компанії:</label>
+          <input type="text" id="editRealtorCompanyId" name="editRealtorCompanyId" required>
+        </div>
+        <div class="form-group">
+          <label for="editRealtorPassword">Пароль:</label>
+          <input type="password" id="editRealtorPassword" name="editRealtorPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="editRealtorName">Ім'я:</label>
+          <input type="text" id="editRealtorName" name="editRealtorName" required>
+        </div>
+        <div class="form-group">
+          <label for="editRealtorPhone">Телефон:</label>
+          <input type="text" id="editRealtorPhone" name="editRealtorPhone" required>
+        </div>
+        <div>
+          <label for="editRealtorImageSrc">Фото:</label>
+          <input type="file" id="editRealtorImageSrc" accept="image/*">
+        </div>
+        <button id="editRealtorButton">Зберегти</button>
+      </form>
+      <div class="image">
+        <img src="" id="editRealtorImage"/>
+      </div>
+    </div>
+  </div>
+  <div id="tab3" class="tab-content" style="display: none;">
+    <div id="tenantLabel">
+      <h3>Орендарі</h3>
+    </div>
+    <button id="addTenantLabel">
+      Додати нового орендаря
+    </button>
+    <table id="tenantTable">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>Електронна пошта</th>
+        <th>Пароль</th>
+        <th>Ім'я</th>
+        <th>Телефон</th>
+        <th>Фото</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="container">
+      <form class="addTenantForm" id="addTenantForm" style="display: none">
+        <div class="form-group">
+          <label for="tenantEmail">Електронна пошта:</label>
+          <input type="email" id="tenantEmail" name="tenantEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="tenantPassword">Пароль:</label>
+          <input type="password" id="tenantPassword" name="tenantPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="tenantName">Ім'я:</label>
+          <input type="text" id="tenantName" name="tenantName" required>
+        </div>
+        <div class="form-group">
+          <label for="tenantPhone">Телефон:</label>
+          <input type="text" id="tenantPhone" name="tenantPhone" required>
+        </div>
+        <div>
+          <label for="realtorImageSrc">Фото:</label>
+          <input type="file" id="tenantImageSrc" accept="image/*">
+        </div>
+        <button id="addTenantButton">Додати нового рієлтора</button>
+      </form>
+      <div class="image">
+        <img src="" id="tenantImage"/>
+      </div>
+    </div>
+    <div class="container">
+      <form class="editTenantForm" id="editTenantForm" style="display: none">
+        <div class="form-group">
+          <span id="editTenantId"></span>
+        </div>
+        <div class="form-group">
+          <label for="editTenantEmail">Електронна пошта:</label>
+          <input type="email" id="editTenantEmail" name="editTenantEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="editTenantPassword">Пароль:</label>
+          <input type="password" id="editTenantPassword" name="editTenantPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="editTenantName">Ім'я:</label>
+          <input type="text" id="editTenantName" name="editTenantName" required>
+        </div>
+        <div class="form-group">
+          <label for="editTenantPhone">Телефон:</label>
+          <input type="text" id="editTenantPhone" name="editTenantPhone" required>
+        </div>
+        <div>
+          <label for="editTenantImageSrc">Фото:</label>
+          <input type="file" id="editTenantImageSrc" accept="image/*">
+        </div>
+        <button id="editTenantButton">Зберегти</button>
+      </form>
+      <div class="image">
+        <img src="" id="editTenantImage"/>
+      </div>
+    </div>
+  </div>
+  <div id="tab4" class="tab-content" style="display: none;">
+    <div id="buildingLabel">
+      <h3>Приміщення</h3>
+    </div>
+    <button id="addBuildingLabel">
+      Додати нове приміщення
+    </button>
+    <table id="buildingTable">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>id рієлтора</th>
+        <th>id орендаря</th>
+        <th>Тип</th>
+        <th>Площа</th>
+        <th>Назва</th>
+        <th>Ціна</th>
+        <th>Дозвіл на тварин</th>
+        <th>Фото</th>
+        <th>Опис</th>
+        <th>Категорія</th>
+        <th>Місто</th>
+        <th>Адреса</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="container">
+      <form class="addBuildingForm" id="addBuildingForm" style="display: none">
+        <div class="form-group">
+          <label for="buildingRealtorId">id рієлтора:</label>
+          <input type="text" id="buildingRealtorId" name="buildingRealtorId" required>
+        </div>
+        <div class="form-group">
+          <label for="buildingTenantId">id орендаря:</label>
+          <input type="text" id="buildingTenantId" name="buildingTenantId">
+        </div>
+        <div class="form-group">
+          <label for="buildingName">Назва:</label>
+          <input type="text" id="buildingName" name="buildingName" required>
+        </div>
+        <div class="form-group">
+          <label for="buildingType">Тип:</label>
+          <input type="text" id="buildingType" name="buildingType" required>
+        </div>
+        <div class="form-group">
+          <label for="buildingSquare">Площа:</label>
+          <input type="number" id="buildingSquare" name="buildingSquare" required>
+        </div>
+        <div class="form-group">
+          <label for="buildingPrice">Ціна:</label>
+          <input type="number" id="buildingPrice" name="buildingPrice" required>
+        </div>
+        <div class="form-group">
+          <label for="tenantType">Опис:</label>
+          <textarea id="tenantType" name="tenantType" required style="width: 600px; height: 100px;"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="buildingIsPetAllowed">Pets Allowed:</label>
+          <input type="checkbox" id="buildingIsPetAllowed" name="buildingIsPetAllowed">
+        </div>
+        <div class="form-group">
+          <label for="buildingCategory">Категорія:</label>
+          <input type="text" id="buildingCategory" name="buildingCategory" required>
+        </div>
+        <div class="form-group">
+          <label for="buildingCity">Місто:</label>
+          <input type="text" id="buildingCity" name="buildingCity" required>
+        </div>
+        <div class="form-group">
+          <label for="buildingAddress">Адреса:</label>
+          <input type="text" id="buildingAddress" name="buildingAddress" required>
+        </div>
+        <div>
+          <label for="buildingImageSrc">Фото:</label>
+          <input type="file" id="buildingImageSrc" accept="image/*">
+        </div>
+        <button id="addBuildingButton">Додати нове приміщення</button>
+      </form>
+      <div class="image">
+        <img src="" id="buildingImage"/>
+      </div>
+    </div>
+    <div class="container">
+      <form class="editBuildingForm" id="editBuildingForm" style="display: none">
+        <div class="form-group">
+          <span id="editBuildingId"></span>
+        </div>
+        <div class="form-group">
+          <label for="editBuildingRealtorId">id рієлтора:</label>
+          <input type="text" id="editBuildingRealtorId" name="editBuildingRealtorId" required>
+        </div>
+        <div class="form-group">
+          <label for="editBuildingTenantId">id орендаря:</label>
+          <input type="text" id="editBuildingTenantId" name="editBuildingTenantId">
+        </div>
+        <div class="form-group">
+          <label for="editBuildingName">Назва:</label>
+          <input type="text" id="editBuildingName" name="editBuildingName" required>
+        </div>
+        <div class="form-group">
+          <label for="editBuildingType">Тип:</label>
+          <input type="text" id="editBuildingType" name="editBuildingType" required>
+        </div>
+        <div class="form-group">
+          <label for="editBuildingSquare">Площа:</label>
+          <input type="number" id="editBuildingSquare" name="editBuildingSquare" required>
+        </div>
+        <div class="form-group">
+          <label for="editBuildingPrice">Ціна:</label>
+          <input type="number" id="editBuildingPrice" name="editBuildingPrice" required>
+        </div>
+        <div class="form-group">
+          <label for="editBuildingDescription">Опис:</label>
+          <textarea id="editBuildingDescription" name="editBuildingDescription" required style="width: 600px; height: 100px;"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="editBuildingIsPetAllowed">Pets Allowed:</label>
+          <input type="checkbox" id="editBuildingIsPetAllowed" name="editBuildingIsPetAllowed">
+        </div>
+        <div class="form-group">
+          <label for="editBuildingCategory">Категорія:</label>
+          <input type="text" id="editBuildingCategory" name="editBuildingCategory" required>
+        </div>
+        <div class="form-group">
+          <label for="editBuildingCity">Місто:</label>
+          <input type="text" id="editBuildingCity" name="editBuildingCity" required>
+        </div>
+        <div class="form-group">
+          <label for="editBuildingAddress">Адреса:</label>
+          <input type="text" id="editBuildingAddress" name="editBuildingAddress" required>
+        </div>
+        <div>
+          <label for="editBuildingImageSrc">Фото:</label>
+          <input type="file" id="editBuildingImageSrc" accept="image/*">
+        </div>
+        <button id="editBuildingButton">Зберегти</button>
+      </form>
+      <div class="image">
+        <img src="" id="editBuildingImage"/>
+      </div>
+    </div>
+  </div>
+  <div id="tab5" class="tab-content" style="display: none;">
+    <div id="subscriptionTypeLabel">
+      <h3>Типи підписок</h3>
+    </div>
+    <button id="addSubscriptionTypeLabel">
+      Додати новий тип підписки
+    </button>
+    <table id="subscriptionTypeTable">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>Назва</th>
+        <th>Ціна</th>
+        <th>Термін</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="container">
+      <form class="addSubscriptionTypeForm" id="addSubscriptionTypeForm" style="display: none">
+        <div class="form-group">
+          <label for="subscriptionTypeName">Назва: </label>
+          <input type="text" id="subscriptionTypeName" name="subscriptionTypeName" required>
+        </div>
+        <div class="form-group">
+          <label for="subscriptionTypePrice">Ціна: </label>
+          <input type="number" id="subscriptionTypePrice" name="subscriptionTypePrice" required>
+        </div>
+        <div class="form-group">
+          <label for="subscriptionTypeTerm">Термін: </label>
+          <input type="number" id="subscriptionTypeTerm" name="subscriptionTypeTerm" required>
+        </div>
+        <button id="addSubscriptionTypeButton">Додати новий тип підписки</button>
+      </form>
+    </div>
+    <div class="container">
+      <form class="editSubscriptionTypeForm" id="editSubscriptionTypeForm" style="display: none">
+        <div class="form-group">
+          <span id="editSubscriptionTypeId"></span>
+        </div>
+        <div class="form-group">
+          <label for="editSubscriptionTypeName">Назва: </label>
+          <input type="text" id="editSubscriptionTypeName" name="editSubscriptionTypeName" required>
+        </div>
+        <div class="form-group">
+          <label for="editSubscriptionTypePrice">Ціна: </label>
+          <input type="number" id="editSubscriptionTypePrice" name="editSubscriptionTypePrice" required>
+        </div>
+        <div class="form-group">
+          <label for="editSubscriptionTypeTerm">Термін: </label>
+          <input type="number" id="editSubscriptionTypeTerm" name="editSubscriptionTypeTerm" required>
+        </div>
+        <button id="editSubscriptionTypeButton">Зберегти</button>
+      </form>
+    </div>
+  </div>
+  <div id="tab6" class="tab-content" style="display: none;">
+    <div id="subscriptionLabel">
+      <h3>Підписки</h3>
+    </div>
+    <button id="addSubscriptionLabel">
+      Додати нову підписку
+    </button>
+    <table id="subscriptionTable">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>id компанії</th>
+        <th>id типу підписки</th>
+        <th>Дата початку</th>
+        <th>Дата кінця</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="container">
+      <form class="addSubscriptionForm" id="addSubscriptionForm" style="display: none">
+        <div class="form-group">
+          <label for="subscriptionCompanyId">id компанії: </label>
+          <input type="text" id="subscriptionCompanyId" name="subscriptionCompanyId" required>
+        </div>
+        <div class="form-group">
+          <label for="subscriptionSubscriptionTypeId">id типу підписки: </label>
+          <input type="text" id="subscriptionSubscriptionTypeId" name="subscriptionSubscriptionTypeId" required>
+        </div>
+        <div class="form-group">
+          <label for="subscriptionStartDate">Дата початку: </label>
+          <input type="date" id="subscriptionStartDate" name="subscriptionStartDate" required>
+        </div>
+        <div class="form-group">
+          <label for="subscriptionEndDate">Кінцева дата: </label>
+          <input type="date" id="subscriptionEndDate" name="subscriptionEndDate" required>
+        </div>
+        <button id="addSubscriptionButton">Додати нову підписку</button>
+      </form>
+    </div>
+    <div class="container">
+      <form class="editSubscriptionForm" id="editSubscriptionForm" style="display: none">
+        <div class="form-group">
+          <div class="form-group">
+            <span id="editSubscriptionId"></span>
+          </div>
+          <label for="editSubscriptionCompanyId">id компанії: </label>
+          <input type="text" id="editSubscriptionCompanyId" name="editSubscriptionCompanyId" required>
+        </div>
+        <div class="form-group">
+          <label for="editSubscriptionSubscriptionTypeId">id типу підписки: </label>
+          <input type="text" id="editSubscriptionSubscriptionTypeId" name="editSubscriptionSubscriptionTypeId" required>
+        </div>
+        <div class="form-group">
+          <label for="editSubscriptionStartDate">Дата початку: </label>
+          <input type="date" id="editSubscriptionStartDate" name="editSubscriptionStartDate" required>
+        </div>
+        <div class="form-group">
+          <label for="editSubscriptionEndDate">Кінцева дата: </label>
+          <input type="date" id="editSubscriptionEndDate" name="editSubscriptionEndDate" required>
+        </div>
+        <button id="editSubscriptionButton">Зберегти</button>
+      </form>
+    </div>
+  </div>
+  <div id="tab7" class="tab-content" style="display: none;">
+    <div id="warningLabel">
+      <h3>Попередження</h3>
+    </div>
+    <button id="addWarningLabel">
+      Додати нове попередження
+    </button>
+    <table id="warningTable">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>id приміщення</th>
+        <th>Повідомлення</th>
+        <th>Час</th>
+        <th>Тип</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="container">
+      <form class="addWarningForm" id="addWarningForm" style="display: none">
+        <div class="form-group">
+          <label for="warningBuildingId">id приміщення: </label>
+          <input type="text" id="warningBuildingId" name="warningBuildingId" required>
+        </div>
+        <div class="form-group">
+          <label for="warningMessage">Повідомлення: </label>
+          <input type="text" id="warningMessage" name="warningMessage" required>
+        </div>
+        <div class="form-group">
+          <label for="warningTime">Час: </label>
+          <input type="datetime-local" id="warningTime" name="warningTime" required>
+        </div>
+        <div class="form-group">
+          <label for="warningType">Тип: </label>
+          <input type="text" id="warningType" name="warningType" required>
+        </div>
+        <button id="addWarningButton">Додати нове попередження</button>
+      </form>
+    </div>
+    <div class="container">
+      <form class="editWarningForm" id="editWarningForm" style="display: none">
+        <div class="form-group">
+          <div class="form-group">
+            <span id="editWarningId"></span>
+          </div>
+          <label for="editWarningBuildingId">id приміщення: </label>
+          <input type="text" id="editWarningBuildingId" name="editWarningBuildingId" required>
+        </div>
+        <div class="form-group">
+          <label for="editWarningMessage">Повідомлення: </label>
+          <input type="text" id="editWarningMessage" name="editWarningMessage" required>
+        </div>
+        <div class="form-group">
+          <label for="editWarningTime">Час: </label>
+          <input type="datetime-local" id="editWarningTime" name="editWarningTime" required>
+        </div>
+        <div class="form-group">
+          <label for="editWarningType">Тип: </label>
+          <input type="text" id="editWarningType" name="editWarningType" required>
+        </div>
+        <button id="editWarningButton">Зберегти</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script>
+  function updateContent() {
+    document.getElementById("title").textContent = i18next.t("admin_panel_title")
+    document.getElementById("textCompanies").textContent = i18next.t("companies")
+    document.getElementById("textRealtors").textContent = i18next.t("realtors")
+    document.getElementById("textTenants").textContent = i18next.t("tenants")
+    document.getElementById("textSubscriptions").textContent = i18next.t("subscriptions")
+    document.getElementById("textSubscriptionTypes").textContent = i18next.t("subscription_types")
+    document.getElementById("textWarnings").textContent = i18next.t("warnings")
+    document.getElementById("textBuildings").textContent = i18next.t("buildings")
+    document.getElementById("companiesTitle").textContent = i18next.t("companies")
+    document.getElementById("addCompanyLabel").textContent = i18next.t("add_new_company")
+    document.getElementById("companyIdTitle").textContent = i18next.t("id")
+    document.getElementById("companyEmailTitle").textContent = i18next.t("email_title")
+    document.getElementById("companyNameTitle").textContent = i18next.t("company_name_title")
+    document.getElementById("companyPasswordTitle").textContent = i18next.t("password_title")
+
+
+
+  }
+  const language = localStorage.getItem("selectedLanguage") === null ? 'uk' : localStorage.getItem("selectedLanguage")
+  document.addEventListener('DOMContentLoaded', function() {
+    i18next.init({
+      lng: language,
+      resources: {
+        en: {
+          translation: {}
+        },
+        uk: {
+          translation: {}
+        }
+      }
+    }, function (err, t) {
+      updateContent();
+    });
+
+    const toggleSwitch = document.getElementById('toggleSwitch');
+    toggleSwitch.checked = language !== 'uk';
+    toggleSwitch.addEventListener('change', function() {
+      const slider = this.nextElementSibling;
+      let value;
+      if (this.checked) {
+        slider.setAttribute('data-text', 'EN');
+        value = 'en'
+      } else {
+        slider.setAttribute('data-text', 'УКР');
+        value = 'uk'
+      }
+      localStorage.setItem("selectedLanguage", value);
+      i18next.changeLanguage(value, updateContent);
+    });
+
+    fetch('../../en.json')
+            .then(response => response.json())
+            .then(data => {
+              i18next.addResourceBundle('en', 'translation', data);
+              updateContent();
+            });
+
+    fetch('../../uk.json')
+            .then(response => response.json())
+            .then(data => {
+              i18next.addResourceBundle('uk', 'translation', data);
+              updateContent();
+            });
+  });
+</script>
+<script src="../static/js/index.js" type="module"></script>
+</html>

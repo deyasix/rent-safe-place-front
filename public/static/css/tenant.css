@@ -1,0 +1,19 @@
+.container-tenant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    alignment-baseline: top;
+}
+
+.container-tenant #tenant {
+    margin-top: 5%;
+    padding:60px
+}
+
+.container-tenant img {
+    margin-top: 50px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}

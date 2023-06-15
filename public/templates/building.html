@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title"></title>
+  <link rel="stylesheet" href="../static/css/building.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<header>
+  <nav>
+    <ul>
+      <li><a href="home_realtor.html" id="textMain" style="font-size: 25px">RentSafePlace</a></li>
+      <li><a href="realtor_account.html" id="textCabinet"></a></li>
+      <li><a href="building_list.html" id="textBuildings"></a></li>
+      <li id="logoutButton"></li>
+      <li style="right: 15px; position: absolute;">
+        <label class="toggle">
+          <input type="checkbox" id="toggleSwitch">
+          <span class="slider round" data-text="УКР" data-text-checked="EN"></span>
+        </label>
+      </li>
+    </ul>
+  </nav>
+</header>
+<body>
+<div class="container">
+  <div class="content">
+    <h1 id="textTitle"></h1>
+    <div class="container-building">
+      <div class="building-image">
+        <img id="image" src="" alt="Building Image" width="200">
+      </div>
+      <form id="editBuildingForm">
+
+        <div>
+          <label for="imageSrc" id="textImage"></label>
+          <input type="file" id="imageSrc" accept="image/*">
+        </div>
+
+        <label for="name" id="textName"></label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="description" id="textDescription"></label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="type" id="textType"></label>
+        <input type="text" id="type" name="type" required>
+
+        <label for="category" id="textCategory"></label>
+        <input type="text" id="category" name="category" required>
+
+        <label for="price" id="textPrice"></label>
+        <input type="number" id="price" name="price" required>
+
+        <label for="city" id="textCity"></label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="address" id="textAddress"></label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="petsAllowed" id="textPets"></label>
+        <input type="checkbox" id="petsAllowed" name="petsAllowed">
+
+        <label for="area" id="textArea"></label>
+        <input type="number" id="area" name="area" required>
+
+        <label for="tenant" id="textTenant"></label>
+        <input type="number" id="tenant" name="tenant">
+
+        <button id="saveButton"></button>
+      </form>
+    </div>
+  </div>
+  <footer id="footer"></footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.7.1/dist/umd/i18next.min.js"></script>
+<script src="../static/js/building.js" type="module"></script>
+<script src="../static/js/logout_realtor.js"></script>
+</body>
+</html>

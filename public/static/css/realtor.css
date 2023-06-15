@@ -1,0 +1,65 @@
+.content {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+
+.realtor-form {
+    margin: 20px;
+    width: 600px;
+}
+
+.realtor-form div {
+    margin-bottom: 10px;
+}
+
+.realtor-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.realtor-form input {
+    padding: 5px;
+    width: 100%;
+}
+
+#changePasswordForm {
+    display: none;
+    margin: 20px;
+}
+
+#changePasswordForm h3 {
+    margin-top: 0;
+}
+
+#passwordForm .form-group {
+    margin-bottom: 10px;
+}
+
+#passwordForm label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#passwordForm input {
+    padding: 5px;
+    width: 100%;
+}
+
+#saveButton,
+#changePasswordButton,
+#savePasswordBtn {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#saveButton:hover,
+#changePasswordButton:hover,
+#savePasswordBtn:hover {
+    background-color: #45a049;
+}
